@@ -7026,11 +7026,13 @@ char * checkLOC(char * a)
 
 char * checkGender(char *a)
 {
-    if(a[16] == '1')
+    int tt = a[16] - '\0';
+    int tt1 = tt % 2;
+    if(tt1 == 1)
     {
         return "男";
     }
-    if(a[16] == '2')
+    if(tt1 == 0)
     {
         return "女";
     }
@@ -7043,7 +7045,7 @@ char * checkGender(char *a)
 int main()
 {
     char id[19];
-    printf("\n请输入18位身份证号:\n ");
+    printf("\n请输入18位身份证号(若末尾为X，请输入大写X):\n ");
     for(int i=0;i<18;i++)
     {
         scanf("%c",&id[i]);
